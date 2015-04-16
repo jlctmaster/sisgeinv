@@ -386,6 +386,7 @@ CREATE TABLE tcontrasena (
 	cnombre_usuario CHAR(17) NOT NULL COMMENT 'Identificador del registro de la entidad / tabla usuario',
 	ccontrasena VARCHAR(60) NOT NULL COMMENT 'Identifica la clave encriptada del usuario',
 	nestado INT NOT NULL DEFAULT 0 COMMENT 'Identifica el estado de la clave si la clave ha sido usada (0), si la clave esta activo (1), si la clave ha caducado (2), si la clave es de un usuario nuevo (3) o si el usuario esta bloqueado (4)',
+	dfecha_modificación TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Identifica la fecha de modificación del registro',
 	nestatus INT NOT NULL DEFAULT 1 COMMENT 'Identifica si el registro se encuentra activo (1) o inactivo (0)',
 	CONSTRAINT pk_contrasena PRIMARY KEY(nid_contrasena),
 	CONSTRAINT fk_contrasena_usuario FOREIGN KEY(cnombre_usuario) REFERENCES tusuario(cnombre_usuario) ON UPDATE CASCADE ON DELETE RESTRICT
