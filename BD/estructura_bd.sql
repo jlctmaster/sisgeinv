@@ -8,7 +8,7 @@ CREATE TABLE tcompania (
 	crif_compania CHAR(12) NOT NULL COMMENT 'Registro de Información Fiscal de la Compañía',
 	cnombre VARCHAR(80) NOT NULL COMMENT 'Nombre o Razón Social de la Compañía',
 	cemail VARCHAR(80) NOT NULL COMMENT 'Dirección de Correo Electrónico de la Compañía',
-	cclave_email VARCHAR(100) NOT NULL COMMENT 'Clave de la dirección de correo electrónico',
+	cclave_email VARCHAR(100) COMMENT 'Clave de la dirección de correo electrónico',
 	cmision TEXT COMMENT 'Misión de la Compañía',
 	cvision TEXT COMMENT 'Visión de la Compañía',
 	cobjetivo TEXT COMMENT 'Objetivo General y Especificos de la Compañía',
@@ -354,7 +354,7 @@ CREATE TABLE tservicio (
 	cnombre VARCHAR(45) NOT NULL COMMENT 'Nombre descriptivo del registro para la entidad / tabla servicio',
 	nid_modulo INT NOT NULL COMMENT 'Identificador del registro de la entidad / tabla módulo',
 	curl varchar(50) NOT NULL COMMENT 'Identifica la url con la cual se podrá acceder al servicio',
-	corden INT NOT NULL DEFAULT 0 COMMENT 'Identifica el orden a mantener en el menú',
+	norden INT NOT NULL DEFAULT 0 COMMENT 'Identifica el orden a mantener en el menú',
 	nestatus INT NOT NULL DEFAULT 1 COMMENT 'Identifica si el registro se encuentra activo (1) o inactivo (0)',
 	CONSTRAINT pk_servicio PRIMARY KEY(nid_servicio),
 	CONSTRAINT fk_servicio_modulo FOREIGN KEY(nid_modulo) REFERENCES tmodulo(nid_modulo) ON UPDATE CASCADE ON DELETE RESTRICT
@@ -386,7 +386,7 @@ CREATE TABLE tcontrasena (
 	cnombre_usuario CHAR(17) NOT NULL COMMENT 'Identificador del registro de la entidad / tabla usuario',
 	ccontrasena VARCHAR(60) NOT NULL COMMENT 'Identifica la clave encriptada del usuario',
 	nestado INT NOT NULL DEFAULT 0 COMMENT 'Identifica el estado de la clave si la clave ha sido usada (0), si la clave esta activo (1), si la clave ha caducado (2), si la clave es de un usuario nuevo (3) o si el usuario esta bloqueado (4)',
-	dfecha_modificación TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Identifica la fecha de modificación del registro',
+	dfecha_modificacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Identifica la fecha de modificación del registro',
 	nestatus INT NOT NULL DEFAULT 1 COMMENT 'Identifica si el registro se encuentra activo (1) o inactivo (0)',
 	CONSTRAINT pk_contrasena PRIMARY KEY(nid_contrasena),
 	CONSTRAINT fk_contrasena_usuario FOREIGN KEY(cnombre_usuario) REFERENCES tusuario(cnombre_usuario) ON UPDATE CASCADE ON DELETE RESTRICT
