@@ -97,7 +97,7 @@ class Usuario{
 		$msg_error="";
 		if(count($pold) == count($pnew)){
 			for($i=0;$i<count($pnew);$i++){
-				$sql1="UPDATE tcrespuesta_secreta SET cpregunta = '".$pnew[$i]."',crespuesta =  '".$rnew[$i]."' 
+				$sql1="UPDATE trespuesta_secreta SET cpregunta = '".$pnew[$i]."',crespuesta =  '".$rnew[$i]."' 
 				WHERE cnombre_usuario='$this->cnombre_usuario' AND cpregunta = '".$pold[$i]."'";
 				if($this->mysql->Ejecutar($sql1)!=null)
 					$con++;
@@ -110,7 +110,7 @@ class Usuario{
 		else if(count($pold) < count($pnew)){
 			$prest = count($pnew)-count($pold);
 			for($i=0;$i<count($pold);$i++){
-				$sql1="UPDATE tcrespuesta_secreta SET cpregunta = '".$pnew[$i]."',crespuesta =  '".$rnew[$i]."' 
+				$sql1="UPDATE trespuesta_secreta SET cpregunta = '".$pnew[$i]."',crespuesta =  '".$rnew[$i]."' 
 				WHERE cnombre_usuario='$this->cnombre_usuario' AND cpregunta = '".$pold[$i]."'";
 				if($this->mysql->Ejecutar($sql1)!=null)
 					$con++;
@@ -120,7 +120,7 @@ class Usuario{
 				}
 			}
 			for ($j=$prest-1;$j < count($pnew);$j++) { 
-				$sql2="INSERT INTO tcrespuesta_secreta (cnombre_usuario,cpregunta,crespuesta) 
+				$sql2="INSERT INTO trespuesta_secreta (cnombre_usuario,cpregunta,crespuesta) 
 				VALUES ('$this->cnombre_usuario','".$pnew[$j]."','".$rnew[$j]."');";
 				if($this->mysql->Ejecutar($sql2))
 					$con++;
@@ -133,7 +133,7 @@ class Usuario{
 		else{
 			$prest = count($pold)-count($pnew);
 			for($i=0;$i<count($pnew);$i++){
-				$sql1="UPDATE tcrespuesta_secreta SET cpregunta = '".$pnew[$i]."',crespuesta =  '".$rnew[$i]."' 
+				$sql1="UPDATE trespuesta_secreta SET cpregunta = '".$pnew[$i]."',crespuesta =  '".$rnew[$i]."' 
 				WHERE cnombre_usuario='$this->cnombre_usuario' AND cpregunta = '".$pold[$i]."'";
 				if($this->mysql->Ejecutar($sql1)!=null)
 					$con++;
@@ -143,7 +143,7 @@ class Usuario{
 				}
 			}
 			for ($k=$prest-1;$k < count($pold);$k++) { 
-				$sql2="DELETE FROM tcrespuesta_secreta WHERE cnombre_usuario='$this->cnombre_usuario' AND cpregunta='".$pold[$k]."';";
+				$sql2="DELETE FROM trespuesta_secreta WHERE cnombre_usuario='$this->cnombre_usuario' AND cpregunta='".$pold[$k]."';";
 				if($this->mysql->Ejecutar($sql2))
 					$con++;
 				else{
@@ -303,7 +303,7 @@ class Usuario{
 		$con=0;
 		$msg_error="";
 		for($i=0;$i<count($pnew);$i++){
-			$sql1="INSERT INTO tcrespuesta_secreta (cnombre_usuario,cpregunta,crespuesta,creado_por,fecha_creacion)
+			$sql1="INSERT INTO trespuesta_secreta (cnombre_usuario,cpregunta,crespuesta,creado_por,fecha_creacion)
 			VALUES ('$this->cnombre_usuario','".$pnew[$i]."','".$rnew[$i]."','$user',NOW())";
 			if($this->mysql->Ejecutar($sql1)!=null)
 				$con++;

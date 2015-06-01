@@ -15,12 +15,16 @@
     <!-- CSS Files -->
     <link rel="stylesheet" type="text/css" href="../external/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../external/bootstrap/css/bootstrap-combined.min.css">
+    <link rel="stylesheet" type="text/css" href="../external/bootstrap/css/DT_bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../css/menu.css">
     <link rel="stylesheet" type="text/css" href="../css/styleMenu.css">
     <!-- JS Files -->
     <script src="../external/jquery/jquery.min.js"></script>
     <script src="../external/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../external/bootstrap/js/jquery.dataTables.js"></script>
+    <script src="../external/bootstrap/js/config_datatable_api.js"></script>
     <!-- Other Files -->
+    <script src="../js/main.js"></script>
   </head>
   <body>
   <!-- Header -->

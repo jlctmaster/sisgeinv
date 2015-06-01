@@ -61,7 +61,7 @@ class Conexion{
 		$this->Desconectar();
 	}
 	public function Msg_Error($query){
-		return "<b>A fatal MySQL error occured</b>.\n<br />Query: " . $query . "<br />\nError: (" . mysql_errno() . ") " . mysql_error();
+		return "<b>Un error fatal en MySQL ha ocurrido</b>. </br>Query: \"" . $query . "\"</br>Error: (" . mysql_errno() . ") " . mysql_error();
 	}
 	//una vez terminar la interaccion con la bd usamos este para cerrar la coneccion    
 	private function Desconectar(){ return @mysql_close($this->conexion);} 

@@ -22,7 +22,7 @@ if(empty($_GET)){
     <script src="external/jquery/jquery.min.js"></script>
     <script src="external/bootstrap/js/bootstrap.min.js"></script>
     <!-- Other Files -->
-    <script src="js/usuario.js"></script>
+    <script src="js/serv_usuario.js"></script>
   </head>
   <body>
     <div class="container">    

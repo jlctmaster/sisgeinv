@@ -5,6 +5,37 @@
     height: 100%;
 }
 
+#logo{
+    position: relative;
+    margin: 0.5em 0.5em 0.5em 0.5em;
+    min-height: 48px;
+    cursor: default;
+}
+
+#logo h1{
+    position: relative;
+    color: black;
+    text-align: right;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1em;
+}
+
+#logo .byline{
+    position: relative;
+    display: block;
+    text-align: right;
+    font-size: 12px;
+    color: black;
+    line-height: 1.25em;
+    margin: 0.5em 0 0 0;
+}
+
+#logo .image{
+    position: relative;
+    left: 10%;
+}
+
 #leftMenu .accordion-group {
     margin-bottom: 0px;
     border:0px;
@@ -18,22 +49,23 @@
     border-top: 1px solid #717171; /* inner stroke */
     border-bottom: 1px solid #5A5A5A; /* inner stroke */
     background-color: #353535; /* layer fill content */
-    background-image: -moz-linear-gradient(90deg, #595b59 0%, #616161 100%); /* gradient overlay */
-    background-image: -o-linear-gradient(90deg, #595b59 0%, #616161 100%); /* gradient overlay */
-    background-image: -webkit-linear-gradient(90deg, #595b59 0%, #616161 100%); /* gradient overlay */
-    background-image: linear-gradient(90deg, #595b59 0%, #616161 100%); /* gradient overlay */
+    background-image: -moz-linear-gradient(90deg, #41B953 0%, #616161 100%); /* gradient overlay */
+    background-image: -o-linear-gradient(90deg, #41B953 0%, #616161 100%); /* gradient overlay */
+    background-image: -webkit-linear-gradient(90deg, #41B953 0%, #616161 100%); /* gradient overlay */
+    background-image: linear-gradient(90deg, #41B953 0%, #616161 100%); /* gradient overlay */
     list-style-type:none;
+    text-align: right;
 }  
 
 #leftMenu .accordion-heading  a{  
-    color: #cbcbcb; /* text color */
-    text-shadow: 0 1px 0 #3b3b3b; /* drop shadow */
+    color: #FFFFFF; /* text color */
+    text-shadow: -1px 3px 3px #000; /* drop shadow */
     text-decoration:none;
     font-weight:bold;  
 }
 
 #leftMenu .accordion-heading  a:hover{  
-    color:#ccc     
+    color:#ccc;
 }
 
 #leftMenu .accordion-heading .active {
@@ -45,4 +77,29 @@
     background-image: -o-linear-gradient(90deg, #4b4b4b 0%, #555 100%); /* gradient overlay */
     background-image: -webkit-linear-gradient(90deg, #4b4b4b 0%, #555 100%); /* gradient overlay */
     background-image: linear-gradient(90deg, #4b4b4b 0%, #555 100%); /* gradient overlay */
+}
+
+#leftMenu .accordion-inner {
+    background-color: #353535; /* layer fill content */
+    background-image: -moz-linear-gradient(90deg, #6DC351 0%, #616161 100%); /* gradient overlay */
+    background-image: -o-linear-gradient(90deg, #6DC351 0%, #616161 100%); /* gradient overlay */
+    background-image: -webkit-linear-gradient(90deg, #6DC351 0%, #616161 100%); /* gradient overlay */
+    background-image: linear-gradient(90deg, #6DC351 0%, #616161 100%); /* gradient overlay */
+}
+
+#leftMenu .accordion-inner ul {
+    list-style: none;
+}
+
+#leftMenu .accordion-inner a{
+    color: #FFFFFF; /* text color */
+    text-shadow: -1px 3px 3px #000; /* drop shadow */
+    font-weight:bold;
+    text-align: right;
+}
+
+#leftMenu .accordion-inner  a:hover{  
+    color:#CCCCCC;     
+    /*color: rgb(30, 97, 179); /* text color */
+    /*text-shadow: 0 1px 0 rgb(245, 180, 215); /* drop shadow */
 }

@@ -38,7 +38,7 @@ if(isset($_POST['lOpt']) and $_POST['lOpt']=='Registrar'){
   $crif_persona=explode('_',trim($_POST['crif_persona']));
   $Usuario->crif_persona($crif_persona[0]);
   $Usuario->nid_perfil(trim($_POST['nid_perfil']));
-  $Usuario->nombre_usuario($Usuario->Generar_NombreUsuario($crif_persona[0],trim($_POST['nid_perfil'])));
+  $Usuario->cnombre_usuario($Usuario->Generar_NombreUsuario($crif_persona[0],trim($_POST['nid_perfil'])));
   $Usuario->crif_persona($crif_persona[0]);
   if(!$Usuario->Registrar($_SESSION['user_name'])){
     $_SESSION['datos']['mensaje']="¡Lo sentimos, el usuario no se ha podido registrar, intenta más tarde!";
@@ -53,10 +53,9 @@ if(isset($_POST['lOpt']) and $_POST['lOpt']=='Registrar'){
 if(isset($_POST['lOpt']) and $_POST['lOpt']=='Modificar'){
   $Usuario=new Usuario();
   if($_SESSION['user_estado']<>3){
-    $Usuario->cnombre_usuario($_POST['nombre_usuario']);
+    $Usuario->cnombre_usuario(trim($_POST['cnombre_usuario']));
     if($Usuario->Actualizar($_SESSION['user_name'],$_SESSION['user_pregunta'],$_POST['pregunta'],$_POST['respuesta'])){
-      $Usuario->cnombre_usuario($_POST['nombre_usuario']);
-      $res=$Usuario->Buscar();
+      $res=$Usuario->Buscar_1();
       if($res!=null){
         for($i=0;$i<$res[0]['nnumero_preguntas'];$i++){
            $preguntas[]=$res[$i]['cpreguntas'];
@@ -66,21 +65,25 @@ if(isset($_POST['lOpt']) and $_POST['lOpt']=='Modificar'){
         unset($_SESSION['user_respuesta']);
         $_SESSION['user_pregunta']=$preguntas;
         $_SESSION['user_respuesta']=$respuestas;
+        $_SESSION['datos']['mensaje']="¡Se han realizado los cambios exitosamente!";
+        $_SESSION['user_estado']=1;
+        header("Location: ../view/menu_principal.php?perfil");
       }
-      $_SESSION['datos']['mensaje']="¡Se han realizado los cambios exitosamente!";
-      $_SESSION['user_estado']=1;
-      header("Location: ../view/menu_principal.php?perfil");
+      else{
+        $_SESSION['datos']['mensaje']="¡Ocurrió un error al actualizar los datos, intenta más tarde!".$Usuario->error();
+        header("Location: ../view/menu_principal.php?perfil");
+      }
     }else{
-      $_SESSION['datos']['mensaje']="¡Ocurrió un error al actualizar los datos, intenta más tarde!";
+      $_SESSION['datos']['mensaje']="¡Ocurrió un error al actualizar los datos, intenta más tarde!".$Usuario->error();
       header("Location: ../view/menu_principal.php?perfil");
     }
   }
   else{
-    $Usuario->cnombre_usuario($_POST['nombre_usuario']);
-    $Usuario->ccontrasena($_POST['nueva_contrasena']);
+    $Usuario->cnombre_usuario(trim($_POST['cnombre_usuario']));
+    $Usuario->ccontrasena(trim($_POST['nueva_contrasena']));
     if($Usuario->Cambiar_Clave($_SESSION['user_name'])){
       if($Usuario->CompletarDatos($_SESSION['user_name'],$_POST['pregunta'],$_POST['respuesta'])){
-        $Usuario->cnombre_usuario($_POST['nombre_usuario']);
+        $Usuario->cnombre_usuario($_POST['cnombre_usuario']);
         $res=$Usuario->Buscar();
         if($res!=null){
           for($i=0;$i<$res[0]['nnumero_preguntas'];$i++){
